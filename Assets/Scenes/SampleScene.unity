@@ -309,6 +309,7 @@ MonoBehaviour:
   gOText: {fileID: 753015829}
   maxTime: 8
   waitTime: 200
+  rotationSpeed: 5
 --- !u!4 &94002542
 Transform:
   m_ObjectHideFlags: 0

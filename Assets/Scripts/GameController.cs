@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
 
     public float maxTime;
     public float waitTime;
+    public int rotationSpeed;
 
     private int lives;
     private int score;
@@ -48,12 +49,12 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            colorWheel.transform.Rotate(new Vector3(0, 0, 10));
+            colorWheel.transform.Rotate(new Vector3(0, 0, rotationSpeed));
         }
 
         if (Input.GetKey("d"))
         {
-            colorWheel.transform.Rotate(new Vector3(0, 0, -10));
+            colorWheel.transform.Rotate(new Vector3(0, 0, -1*rotationSpeed));
         }
 
         if(Input.GetKeyDown("enter") || Input.GetKeyDown("space"))
