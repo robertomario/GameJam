@@ -141,7 +141,7 @@ Transform:
   m_Children:
   - {fileID: 1780566006}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40896626
 GameObject:
@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 40896630}
   - component: {fileID: 40896629}
   - component: {fileID: 40896628}
+  - component: {fileID: 40896631}
   m_Layer: 0
   m_Name: CubeBlue
   m_TagString: Untagged
@@ -234,6 +235,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40896626}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &40896631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40896626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4e435f5c5f2d24b8bc696361936cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 94002541}
+  coloredCube: {fileID: 40896626}
+--- !u!1 &94002540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94002542}
+  - component: {fileID: 94002541}
+  m_Layer: 0
+  m_Name: GameControllerHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &94002541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94002540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a313be0ffd07eb498bd02c95aded280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorWheel: {fileID: 1606994264}
+--- !u!4 &94002542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94002540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &188868562
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +396,7 @@ GameObject:
   - component: {fileID: 435204504}
   - component: {fileID: 435204503}
   - component: {fileID: 435204502}
+  - component: {fileID: 435204505}
   m_Layer: 0
   m_Name: CubeYellow
   m_TagString: Untagged
@@ -416,6 +476,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435204500}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &435204505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435204500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4e435f5c5f2d24b8bc696361936cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 94002541}
+  coloredCube: {fileID: 435204500}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +570,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732105819
 GameObject:
@@ -510,6 +584,7 @@ GameObject:
   - component: {fileID: 732105823}
   - component: {fileID: 732105822}
   - component: {fileID: 732105821}
+  - component: {fileID: 732105824}
   m_Layer: 0
   m_Name: CubeRed
   m_TagString: Untagged
@@ -589,6 +664,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732105819}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &732105824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732105819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4e435f5c5f2d24b8bc696361936cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 94002541}
+  coloredCube: {fileID: 732105819}
 --- !u!1 &1207183721
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +690,7 @@ GameObject:
   - component: {fileID: 1207183725}
   - component: {fileID: 1207183724}
   - component: {fileID: 1207183723}
+  - component: {fileID: 1207183726}
   m_Layer: 0
   m_Name: CubeGreen
   m_TagString: Untagged
@@ -680,6 +770,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207183721}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1207183726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207183721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4e435f5c5f2d24b8bc696361936cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 94002541}
+  coloredCube: {fileID: 1207183721}
 --- !u!1 &1252826081
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +813,7 @@ Transform:
   m_Children:
   - {fileID: 188868563}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1430840637
 GameObject:
@@ -740,7 +844,7 @@ Transform:
   m_Children:
   - {fileID: 2037636279}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606994264
 GameObject:
@@ -774,7 +878,7 @@ Transform:
   - {fileID: 435204501}
   - {fileID: 732105820}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780566005
 GameObject:
