@@ -7,6 +7,13 @@ public class GameController : MonoBehaviour
 {
 
     public GameObject colorWheel;
+    public GameObject targetRed;
+    public GameObject targetBlue;
+    public GameObject targetYellow;
+    public GameObject targetGreen;
+    public GameObject spawnUp;
+    public GameObject spawnMiddle;
+    public GameObject spawnDown;
 
     private int lives;
     private int score;
@@ -16,6 +23,7 @@ public class GameController : MonoBehaviour
     {
         lives = 3;
         score = 0;
+        Instantiate(targetBlue, spawnMiddle.transform);
     }
 
     // Update is called once per frame
@@ -36,6 +44,8 @@ public class GameController : MonoBehaviour
         {
             colorWheel.transform.Rotate(new Vector3(0, 0, -10));
         }
+
+        
     }
 
     public void IncrementScore()
