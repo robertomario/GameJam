@@ -24,7 +24,9 @@ public class GameController : MonoBehaviour
     private int lives;
     private int score;
     private float timer = 0f;
-    private int counter = 0;
+    private int numTargets = 11;
+    private int creationCounter = 0;
+    private int destructionCounter = 0;
     private bool gameOverFlag = false;
 
     // Start is called before the first frame update
@@ -32,8 +34,6 @@ public class GameController : MonoBehaviour
     {
         lives = 3;
         score = 0;
-        Instantiate(targetBlue, spawnMiddle.transform);
-        counter++;
     }
 
     // Update is called once per frame
@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
             gOText.text = "Try again \n Your score was " + score;
             gOText.gameObject.SetActive(true);
             gameOverFlag = true;
+            clearTargets();
         }
 
         if (Input.GetKey("a"))
@@ -65,13 +66,19 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-        if (timer >= maxTime && gameOverFlag==false)
+
+        if (!gameOverFlag)
         {
-            gOText.text = "Congratulations! You won! \n Your score was " + score;
-            gOText.gameObject.SetActive(true);
-            gameOverFlag = true;
+            if (destructionCounter == numTargets)
+            {
+                gOText.text = "Congratulations! You won! \n Your score was " + score;
+                gOText.gameObject.SetActive(true);
+                gameOverFlag = true;
+            }
+
+            UpdateSpawning();
         }
-        UpdateSpawning();        
+          
     }
 
     public void IncrementScore()
@@ -84,6 +91,11 @@ public class GameController : MonoBehaviour
         lives--;
     }
 
+    public void IncrementDestructionCounter()
+    {
+        destructionCounter++;
+    }
+
     public int getLives()
     {
         return lives;
@@ -94,17 +106,71 @@ public class GameController : MonoBehaviour
         return score;
     }
 
+    public void clearTargets()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+        for (var i=0; i < targets.Length; i++)
+        {
+            Destroy(targets[i]);
+        }
+    }
+
     void UpdateSpawning()
     {
-        if(timer >= 2 && counter == 1)
+        if (timer >= 1 && creationCounter == 0)
+        {
+            Instantiate(targetBlue, spawnMiddle.transform);
+            creationCounter++;
+        }
+        if (timer >= 3 && creationCounter == 1)
         {
             Instantiate(targetGreen, spawnDown.transform);
-            counter++;
+            creationCounter++;
         }
-        if (timer >= 4 && counter == 2)
+        if (timer >= 5 && creationCounter == 2)
         {
             Instantiate(targetYellow, spawnUp.transform);
-            counter++;
+            creationCounter++;
+        }
+        if (timer >= 7 && creationCounter == 3)
+        {
+            Instantiate(targetGreen, spawnMiddle.transform);
+            creationCounter++;
+        }
+        if (timer >= 8 && creationCounter == 4)
+        {
+            Instantiate(targetRed, spawnUp.transform);
+            creationCounter++;
+        }
+        if (timer >= 10 && creationCounter == 5)
+        {
+            Instantiate(targetGreen, spawnDown.transform);
+            creationCounter++;
+        }
+        if (timer >= 12 && creationCounter == 6)
+        {
+            Instantiate(targetBlue, spawnDown.transform);
+            creationCounter++;
+        }
+        if (timer >= 13 && creationCounter == 7)
+        {
+            Instantiate(targetYellow, spawnDown.transform);
+            creationCounter++;
+        }
+        if (timer >= 14 && creationCounter == 8)
+        {
+            Instantiate(targetYellow, spawnMiddle.transform);
+            creationCounter++;
+        }
+        if (timer >= 16 && creationCounter == 9)
+        {
+            Instantiate(targetRed, spawnMiddle.transform);
+            creationCounter++;
+        }
+        if (timer >= 18 && creationCounter == 10)
+        {
+            Instantiate(targetBlue, spawnUp.transform);
+            creationCounter++;
         }
     }
 

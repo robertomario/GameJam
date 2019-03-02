@@ -35,6 +35,7 @@ public class CollisionDetector : MonoBehaviour
                 gc.LoseLife();
             }
             Destroy(other.gameObject);
+            gc.IncrementDestructionCounter();
         }
     }
 }
