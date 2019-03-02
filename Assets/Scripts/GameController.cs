@@ -47,4 +47,14 @@ public class GameController : MonoBehaviour
     {
         lives--;
     }
+
+    public int getLives()
+    {
+        return lives;
+    }
+
+    public int getScore()
+    {
+        return score;
+    }
 }
