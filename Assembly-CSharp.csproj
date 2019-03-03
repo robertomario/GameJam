@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CollisionDetector.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\rotateSpin.cs" />
     <Compile Include="Assets\Scripts\SlideTarget.cs" />
     <Compile Include="Assets\Scripts\UpdateText.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

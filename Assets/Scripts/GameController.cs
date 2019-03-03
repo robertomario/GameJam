@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject spawnUp;
     public GameObject spawnMiddle;
     public GameObject spawnDown;
+    public AudioSource song;
     public Text gOText;
 
     public float maxTime;
@@ -88,11 +89,13 @@ public class GameController : MonoBehaviour
     public void IncrementScore()
     {
         score++;
+        song.pitch *= 1.1f;
     }
 
     public void LoseLife()
     {
         lives--;
+        song.pitch = 1;
     }
 
     public void IncrementDestructionCounter()
