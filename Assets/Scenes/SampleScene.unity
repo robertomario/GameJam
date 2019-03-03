@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 94002541}
   m_Layer: 0
   m_Name: GameControllerHolder
-  m_TagString: Untagged
+  m_TagString: Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,6 +310,9 @@ MonoBehaviour:
   maxTime: 8
   waitTime: 200
   rotationSpeed: 5
+  minSpawnTime: 0.5
+  maxSpawnTime: 3
+  numTargets: 30
 --- !u!4 &94002542
 Transform:
   m_ObjectHideFlags: 0

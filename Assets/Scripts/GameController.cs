@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-
     public GameObject colorWheel;
     public GameObject targetRed;
     public GameObject targetBlue;
@@ -20,14 +19,19 @@ public class GameController : MonoBehaviour
     public float maxTime;
     public float waitTime;
     public int rotationSpeed;
+    public float minSpawnTime;
+    public float maxSpawnTime;
+    public int numTargets;
 
     private int lives;
     private int score;
     private float timer = 0f;
-    private int numTargets = 11;
     private int creationCounter = 0;
     private int destructionCounter = 0;
     private bool gameOverFlag = false;
+    private float nextSpawnTime = 3;
+    private GameObject nextSpawnColor;
+    private GameObject nextSpawnLocation;
 
     // Start is called before the first frame update
     void Start()
@@ -69,16 +73,16 @@ public class GameController : MonoBehaviour
 
         if (!gameOverFlag)
         {
-            if (destructionCounter == numTargets)
+            if (destructionCounter == numTargets+1)
             {
                 gOText.text = "Congratulations! You won! \n Your score was " + score;
                 gOText.gameObject.SetActive(true);
                 gameOverFlag = true;
+                clearTargets();
             }
 
             UpdateSpawning();
-        }
-          
+        }         
     }
 
     public void IncrementScore()
@@ -106,6 +110,11 @@ public class GameController : MonoBehaviour
         return score;
     }
 
+    public int getCreationCounter()
+    {
+        return creationCounter;
+    }
+
     public void clearTargets()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
@@ -117,60 +126,39 @@ public class GameController : MonoBehaviour
 
     void UpdateSpawning()
     {
-        if (timer >= 1 && creationCounter == 0)
+        if (timer >= nextSpawnTime)
         {
-            Instantiate(targetBlue, spawnMiddle.transform);
+            switch(Random.Range(0, 4))
+            {
+                case 0:
+                    nextSpawnColor = targetBlue;
+                    break;
+                case 1:
+                    nextSpawnColor = targetGreen;
+                    break;
+                case 2:
+                    nextSpawnColor = targetYellow;
+                    break;
+                case 3:
+                    nextSpawnColor = targetRed;
+                    break;
+            }
+            switch (Random.Range(0, 3))
+            {
+                case 0:
+                    nextSpawnLocation = spawnDown;
+                    break;
+                case 1:
+                    nextSpawnLocation = spawnMiddle;
+                    break;
+                case 2:
+                    nextSpawnLocation = spawnUp;
+                    break;
+            }
+            Instantiate(nextSpawnColor, nextSpawnLocation.transform);
             creationCounter++;
-        }
-        if (timer >= 3 && creationCounter == 1)
-        {
-            Instantiate(targetGreen, spawnDown.transform);
-            creationCounter++;
-        }
-        if (timer >= 5 && creationCounter == 2)
-        {
-            Instantiate(targetYellow, spawnUp.transform);
-            creationCounter++;
-        }
-        if (timer >= 7 && creationCounter == 3)
-        {
-            Instantiate(targetGreen, spawnMiddle.transform);
-            creationCounter++;
-        }
-        if (timer >= 8 && creationCounter == 4)
-        {
-            Instantiate(targetRed, spawnUp.transform);
-            creationCounter++;
-        }
-        if (timer >= 10 && creationCounter == 5)
-        {
-            Instantiate(targetGreen, spawnDown.transform);
-            creationCounter++;
-        }
-        if (timer >= 12 && creationCounter == 6)
-        {
-            Instantiate(targetBlue, spawnDown.transform);
-            creationCounter++;
-        }
-        if (timer >= 13 && creationCounter == 7)
-        {
-            Instantiate(targetYellow, spawnDown.transform);
-            creationCounter++;
-        }
-        if (timer >= 14 && creationCounter == 8)
-        {
-            Instantiate(targetYellow, spawnMiddle.transform);
-            creationCounter++;
-        }
-        if (timer >= 16 && creationCounter == 9)
-        {
-            Instantiate(targetRed, spawnMiddle.transform);
-            creationCounter++;
-        }
-        if (timer >= 18 && creationCounter == 10)
-        {
-            Instantiate(targetBlue, spawnUp.transform);
-            creationCounter++;
+            timer = 0f;
+            nextSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
         }
     }
 
